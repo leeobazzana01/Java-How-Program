@@ -184,7 +184,7 @@ public class PegadaCarbono {
         System.out.println("Consumo de Eletricidade (Kw): ");
     
         //leio a qtdade de eletricidade
-        float eletricidade = scanner.nextFloat();
+        floa6+3t eletricidade = scanner.nextFloat();
 
         //setar
         pagada.setEletricidade(eletricidade);
