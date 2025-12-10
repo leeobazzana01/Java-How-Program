@@ -12,7 +12,7 @@ public class Calculadora
 
     //getters e setters
     //numero 1
-    public float getNumeroUm(float numero1)
+    public float getNumeroUm()
     {
         return numero1;
     }
@@ -24,7 +24,7 @@ public class Calculadora
 
 
     //numero 2
-    public float getNumeroDois(float numero2)
+    public float getNumeroDois()
     {
         return numero2;
     }
@@ -35,16 +35,16 @@ public class Calculadora
     }
 
     //operador
-    public char getOperador(char operador)
+    public char getOperador()
     {
         return operador;
     }
 
     public void setOperador(char operador)
     {
-        if (operador != '+' || operador != '-' || operador != '*' || operador != '/')
+        if (operador != '+' && operador != '-' && operador != '*' && operador != '/')
         {
-            System.out.println("Operação Inválida!")
+            System.out.println("Operação Inválida!");
         }
         else{
             this.operador = operador;
@@ -60,13 +60,13 @@ public class Calculadora
         return numero1 + numero2;
     }
 
-    //subtração
+    // subtração
     public float subtraiNumeros(float numero1, float numero2)
     {
         return numero1 - numero2;
     }
 
-    //multiplica
+    // multiplica
     public float multiplicaNumeros(float numero1, float numero2)
     {
         return numero1 * numero2;
@@ -82,42 +82,48 @@ public class Calculadora
         else
         {
             System.out.println("Divisão por Zero Inválida!!!");
+            return 0;
         }
         
     }
 
-    //método para verificar o operador e realizar a operação
-    public char realizaOperacao(float numero1, char operador, float numero2)
+    // método para verificar o operador e realizar a operação
+    public float realizaOperacao(float numero1, char operador, float numero2)
     {
-        //fazendo a lógica de verificação e operação
+        // fazendo a lógica de verificação e operação
         switch (operador)
         {
             case '+':
-                float resultado = calc.somaNumeros(n1, n2);
-                System.out.println("Resultado da Soma: ", resultado);
-                break;
+                float resultadoSoma = somaNumeros(numero1, numero2);
+                System.out.println("Resultado da Soma: " + resultadoSoma);
+                return resultadoSoma;
+
             case '-':
-                float resultado = calc.subtraiNumeros(n1, n2);
-                System.out.println("Resultado da Subtração: ", resultado);
-                break;
+                float resultadoSub = subtraiNumeros(numero1, numero2);
+                System.out.println("Resultado da Subtração: " + resultadoSub);
+                return resultadoSub;
+
             case '*':
-                float resultado = calc.multiplicaNumeros(n1, n2);
-                System.out.println("Resultado da Multiplicação: ", resultado);
-                break;
+                float resultadoMul = multiplicaNumeros(numero1, numero2);
+                System.out.println("Resultado da Multiplicação: " + resultadoMul);
+                return resultadoMul;
+
             case '/':
-                float resultado = calc.divideNumeros(n1, n2);
-                System.out.println("Resultado da Divisão: ", resultado);
-                break;
+                float resultadoDiv = divideNumeros(numero1, numero2);
+                System.out.println("Resultado da Divisão: " + resultadoDiv);
+                return resultadoDiv;
+
             default:
                 System.out.println("Opção Inválida!!");
+                return 0;
         }
     }   
 
-    //main
+    // main
     public static void main(String[] args)
-    {
-        //criando um objeto calculadora
-        Scanner scanner = new scanner(System.in);
+    { 
+        // criando um objeto calculadora
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
 
         //mensagem do cabeçalho
         System.out.println("CALCULADORA");
@@ -130,26 +136,25 @@ public class Calculadora
         float n1 = scanner.nextFloat();
 
         //criando um objeto calculadora
-        Calculadora calc = new Calculadora(0, "", 0);
+        Calculadora calc = new Calculadora(0,'c', 0);
 
-        //settando o valor
+        // settando o valor
         calc.setNumeroUm(n1);
 
-        //solicitando operacao
+        // solicitando operacao
         System.out.println("Operacao = ");
         char op = scanner.next().charAt(0); //USANDO O MÉTODO CHART PARA LER APENAS UM CARACTERE
 
         //setando a operacao
         calc.setOperador(op);
 
-        //solicitando e setando n2
+        // solicitando e setando n2
         System.out.println("Numero = ");
         float n2 = scanner.nextFloat(); 
 
         calc.setNumeroDois(n2);
 
-        float resultado = calc.realizaOperacao(n1, op, n2)
-
+        float resultado = calc.realizaOperacao(n1, op, n2);
 
         scanner.close();
     }
