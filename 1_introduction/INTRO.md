@@ -114,6 +114,7 @@ O Verificador Bytecode confere, antes de executar, se não há nenhum código ma
 Estes exercícios incentivam a pesquisa de problemas do mundo real, aplicando o pensamento algorítmico e a estrutura de classes, preparando você para a codificação em capítulos futuros.
 
 9. (Teste de Condução: Calculadora de Pegada de Carbono) Websites como TerraPass e Carbon Footprint fornecem calculadoras de pegada de carbono. Faça um teste de condução com essas calculadoras (use as URLs fornecidas no material de origem) para determinar sua pegada de carbono. Para se preparar para exercícios futuros, pesquise na web as fórmulas para calcular as pegadas de carbono.
+**Resposta: PegadaCarbono.java**
 
 10. (Teste de Condução: Calculadora de Índice de Massa Corporal (IMC)) O Departamento de Saúde e Serviços Humanos dos Estados Unidos fornece uma calculadora de IMC. Use-a para calcular seu próprio IMC. Para se preparar para um exercício futuro, pesquise na web as fórmulas para calcular o IMC.
 **Resposta: IMC.java**

@@ -162,7 +162,7 @@ Escreva uma aplicação que exiba um padrão de tabuleiro de xadrez, conforme mo
  * * * * * * * *
 * * * * * * * *
 
-2.28 — Diâmetro, Circunferência e Área de um Círculo
+**2.28 — Diâmetro, Circunferência e Área de um Círculo**
 
 Escreva uma aplicação que insira do usuário o raio de um círculo como um inteiro e imprima:
 
@@ -182,7 +182,7 @@ circunferência = 2πr
 
 área = πr²
 
-2.29 — Valor Inteiro de um Caractere
+**2.29 — Valor Inteiro de um Caractere**
 
 Escreva uma aplicação que exiba os equivalentes inteiros dos seguintes caracteres:
 
@@ -201,24 +201,24 @@ Saída:
 
 4   2   3   3   9
 
-2.31 — Tabela de Quadrados e Cubos
+**2.31 — Tabela de Quadrados e Cubos**
 
 Escreva uma aplicação que calcule os quadrados e cubos dos números de 0 a 10 e os imprima como tabela.
 
 Exemplo:
 
 number	square	cube
-0	0	0
-1	1	1
-2	4	8
-3	9	27
-4	16	64
-5	25	125
-6	36	216
-7	49	343
-8	64	512
-9	81	729
-10	100	1000
+0	    0   	0
+1	    1   	1
+2	    4   	8
+3	    9   	27
+4	    16  	64
+5	    25  	125
+6	    36  	216
+7	    49  	343
+8	    64  	512
+9	    81  	729
+10	    100 	1000
 2.32 — Valores Negativos, Positivos e Zero
 
 Escreva um programa que insira cinco números e determine:
@@ -251,6 +251,8 @@ Normal: between 18.5 and 24.9
 Overweight: between 25 and 29.9
 
 Obese: 30 or greater
+
+**Resposta: IMC.java no módulo 1**
 
 2.34 — Calculadora de Crescimento da População Mundial
 
