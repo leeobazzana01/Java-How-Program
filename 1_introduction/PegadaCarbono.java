@@ -10,7 +10,7 @@ public class PegadaCarbono {
     public float residuos_gerados;
     public float consumo;
     public float alimentacao;
-    public float pegada_total = 0;
+    public float pegada_total;
 
 
     public PegadaCarbono(float gasolina, float eletricidade, float distancia_transporte, float gas_cozinha, float residuos_gerados, float consumo, float alimentacao)
@@ -33,7 +33,7 @@ public class PegadaCarbono {
         return gasolina;
     }   
 
-    public void setGasolina(float gas_cozinha)
+    public void setGasolina(float gasolina)
     {
         if (gasolina < 0)
         {
@@ -95,7 +95,7 @@ public class PegadaCarbono {
         }
         else
         {
-            this.distancia_transporte = distancia_transporte;
+            this.gas_cozinha = gas_cozinha;
         }
     }
 
@@ -157,9 +157,11 @@ public class PegadaCarbono {
 
     public float calculaTotal(float gasolina, float eletricidade, float distancia_transporte,  float residuos_gerados, float consumo, float alimentacao)
     {
-        pegada_total = gasolina * 2,3 + eletricidade * 0,6 + distancia_transporte * 0,02 + gas_cozinha + 0,1 * residuos_gerados + 0,0007 * consumo + 150*alimentacao;
+        double pegada_totalD = (gasolina * 2.3) + (eletricidade * 0.6) + (distancia_transporte * 0.02) + 19 + (0.1*residuos_gerados) + (0.0007 * consumo) + (0.150*alimentacao);
 
-        return pegada_total;
+        float pegadatotal = (float) pegada_totalD; 
+
+        return pegadatotal;
     }
     
     public static void main(String[] args)
@@ -176,7 +178,10 @@ public class PegadaCarbono {
         System.out.println("Consumo de Gasolina (L): ");
     
         //leio a qtdade de gasolina
-        float gasolina = scanner.nextFloat();
+        double gasolinaD = scanner.nextFloat();
+
+        //convertendo pra float
+        float gasolina = (float) gasolinaD;
 
         //setar
         pegada.setGasolina(gasolina);
@@ -184,48 +189,66 @@ public class PegadaCarbono {
         System.out.println("Consumo de Eletricidade (Kw): ");
     
         //leio a qtdade de eletricidade
-        floa6+3t eletricidade = scanner.nextFloat();
+        double eletricidadeD = scanner.nextFloat();
 
+        //convertando 
+        float eletricidade = (float) eletricidadeD;
+        
         //setar
-        pagada.setEletricidade(eletricidade);
+        pegada.setEletricidade(eletricidade);        
 
         System.out.println("Distância Transporte (Km): ");
     
         //leio a qtdade de distancia de transportte
-        float distancia = scanner.nextFloat();
+        double distanciaD = scanner.nextFloat();
+
+        //convertando 
+        float distancia = (float) distanciaD;
 
         //setar
-        pagada.setDistanciatransporte(distancia);
+        pegada.setDistanciatransporte(distancia);
 
         System.out.println("Resíduos Gerados (Kg): ");
     
         //leio a qtdade de residuos
-        float residuos_gerados = scanner.nextFloat();
+        double residuos_geradosD = scanner.nextFloat();
+
+        //convertando 
+        float residuos_gerados = (float) residuos_geradosD;
 
         //setar
-        pagada.setResiduos(residuos_gerados);
-
+        pegada.setResiduos(residuos_gerados);
 
         System.out.println("Consumo (R$): ");
     
         //leio a qtdade de grana gaste em consumo
-        float consumo = scanner.nextFloat();
+        double consumoD = scanner.nextFloat();
 
-        //setar
-        pagada.setConsumo(consumo);
+        //convertando 
+        float consumo = (float) consumoD;
         
-
+        //setar
+        pegada.setConsumo(consumo);
+        
         System.out.println("Alimentação (R$): ");
     
         //leio a qtdade de grana gasto c alimento
-        float alimentacao = scanner.nextFloat();
+        double alimentacaoD = scanner.nextFloat();
+
+        //convertando 
+        float alimentacao = (float) alimentacaoD;
 
         //setar
-        pagada.setAlimentacao(alimentacao);
+        pegada.setAlimentacao(alimentacao);
 
         //calculando o total
-        float total = pegada.calculaTotal();
+        float total = pegada.calculaTotal(gasolina, eletricidade, distancia, residuos_gerados, consumo, alimentacao);
 
-        System.out.println("Pegada Mensal de C02 (em Kg/Mês): ", + total);
+        String mensagem = "Pegada Mensal de C02 (em Kg/Mês): "; 
+
+        System.out.printf("%s%.2f\n", mensagem, total);
+
+        //fechando o scanner 
+        scanner.close();
     }
 }

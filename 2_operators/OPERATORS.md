@@ -72,7 +72,7 @@ Ao usar o scanner, o **método converte a string lida para o tipo adequado de va
 
 As variáveis são **estáticas**, ou seja, **precisamos obrigatoriamente declarar seu tipo**, isso será usado pelo compilador para reservar uma determinada quantidade de bytes para ela na memória. Nós estamos convertendo a string lida para o valor adequado no caso acima.
 
-7. Quais são os principais **tipos de variáveis** em Java?
+7. Quais são os principais **tipos de variáveis** em Java? 
 
 Nós temos: 
 
@@ -280,3 +280,11 @@ d) Taxas de estacionamento por dia
 e) Pedágios por dia
 
 Exiba o custo diário total.
+
+
+## PERGUNTAS EXTRAS
+O QUE É CASTING?? COMO E QUANDO DEVEMOS FAZER?? COMO MANIPULAR A VÍRGULA DO FLOAT NO JAVA??
+
+O QUE É FORMATAÇÃO?? COMO IMPRIMIR UMA MENSAGEM E UYM VALOR FLOAT??
+
+QUAIS AS TRÊS FORMAS DE IMPRIMIR UM FLOAT E UMA VARIÁVEL? (println, .fotmat, printf %s%.2f)
