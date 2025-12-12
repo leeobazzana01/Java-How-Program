@@ -68,6 +68,7 @@ public class ContaBancaria {
 
 No caso acima nós **chamamos a classe**, em seguida **nomeamos o objeto** e posteriormente atribuímos a um **new Classe();** passando os **argumentos entre parânteres.
 
+O **new é como se fosse a equipe de construção**, ele **vai na memória** em um endereço livre e cria o objeto com um endereço específico e atributos particulares. Por isso que objetos diferentes possuem atributos totalmente diferentes e não se relacionam.
 
 ## Comportamentos e Métodos 
 
@@ -75,6 +76,7 @@ No caso acima nós **chamamos a classe**, em seguida **nomeamos o objeto** e pos
 
 
 ### O que é um método em uma classe e como ele representa um comportamento de um objeto?
+
 
 
 ### Como se chama (invoca) um método em um objeto e quais são as diferenças entre chamar métodos de instância e métodos estáticos?
@@ -87,9 +89,69 @@ Os atributos de uma classe são implementados como variáveis de instância. Cad
 
 ### Oque são variáveis de instância (atributos) e como diferem de variáveis estáticas?
 
+Variáveis **estáticas** são as que foram **criadas apenas para a classe**, e não para a instânica como um todo. Ou seja, são as variáveis gerais da classe, no caso abaixo o nome, cpf, saldo, saques, depósitos, etc...
+
+Declaramos no início da classe, passando o **modo de acesso (public/private), static, tipo e nome**. Podemos também atribuir um valor.
+
+Por outro lado, as **variávies de instância** são **criadas para o objeto** e atuam representando as **características** dos **objetos instanciados**. No abaixo, meu nome e informações...
+
+```java
+public class ContaBancaria { 
+
+    //variáveis estáticas
+    private static String nome;
+    private static String cpf;
+    private static float saldo;
+    private static float depositos;
+    private static float saques;
+
+    //construtor
+    .
+    .
+    .
+
+    public static void main(String[] args){
+        //aqui temos as variáveis de instância
+        ContaBancaria conta = new ContaBancaria("Leonardo Bazana", "xxxxxxxxxxx", 200.00, 0.0; 0.0);
+    }
+}
+```
+
+Podemos criar atributos **públicos** que **todos os clientes da classe podem acessar com public** através da palavra chave **public**.
+
+Por outro lado, podemos criar **atributos privados** com o objetivo de **ocultar o acesso aos clientes da classe** utilizando a palavra chave **private**.
+
+**PRINCÍPIO DO ENCAPSULAMENTO**
+
+### ONDE E COMO DECLARAR AS VARIÁVEIS DE INSTÂNICA??
+
+**Variáveis de ESTÁTICAS -> declarar no início** 
+**Variáveis de INSTÂNCIA -> delcarar na criação do objeto** 
+
+Exemplo:
+
+```java
+public class Carro{
+
+    //variáveis estáticas
+    public static String modelo;
+    public static float valor;
+    public static int ano;
+
+    public static void main(String[] args)
+    {
+        //aqui instanciamos o objeto e as variáveis de instância
+        Carro chevette = new Carro("Chevette", 25.000,00f, 1997);
+    
+        Carro palio = new Carro("Unno", 32.000,00f, 2009);
+    }
+}
+
+```
 
 ### Porque cada instância de uma classe possui sua própria cópia das variáveis de instância e quais implicações isso tem para o estado dos objetos?
 
+Cada objeto possui características próprias, o que faz com que o estado dos objetos varie entre eles, ou seja, os objetos não têm as mesmas características. Isso garante independência entre os objetos, aumentando a viabilidade de um projeto, de forma que os objetos não sejam os mesmos entre eles. 
 
 ## Instanciação de Objetos 
 
@@ -99,6 +161,7 @@ O **processo de criação de um novo objeto** é realizado por uma expressão de
 
 
 ### Como funciona a expressão de instanciação usando a palavra-chave new e o que acontece internamente quando um objeto é instanciado?
+
 
 
 ### Quais são os componentes obrigatórios de uma expressão de criação de instância (por exemplo, nome da classe e argumentos do construtor)?
@@ -333,3 +396,33 @@ Quando é mais apropriado usar String.format em vez de System.out.printf e como 
 
 Como converter a entrada de texto obtida via showInputDialog (ou Scanner.nextLine) em um número inteiro usando Integer.parseInt e quais precauções tomar para evitar NumberFormatException?
 
+
+## Exercícios
+
+#### 3.5 (Palavra-chave new): Qual é o propósito da palavra-chave new? Explique o que acontece quando você a usa.
+
+#### 3.6 (Construtores Padrão): O que é um construtor padrão? Como as variáveis de instância de um objeto são inicializadas se uma classe tem apenas um construtor padrão?.
+
+#### 3.7 (Variáveis de Instância): Explique o propósito de uma variável de instância.
+
+#### 3.8 (Usando Classes sem Importá-las): Por que todos os aplicativos podem usar as classes System e String sem importá-las primeiro?.
+
+#### 3.9 (Usando uma Classe sem Importá-la): Explique como um programa poderia usar a classe Scanner sem importá-la.
+
+#### 3.10 (Métodos set e get): Explique por que uma classe pode fornecer um método set e um método get para uma variável de instância.
+
+#### 3.11 (Classe Account Modificada): Modifique a classe Account (Fig. 3.8) para fornecer um método chamado withdraw (sacar) que retira dinheiro de uma conta. Assegure que o valor da retirada não exceda o saldo da conta. Se exceder, o saldo deve permanecer inalterado, e o método deve imprimir a mensagem "Withdrawal amount exceeded account balance." Modifique a classe AccountTest (Fig. 3.9) para testar o método withdraw.
+
+#### 3.12 (Classe Invoice): Crie uma classe chamada Invoice que uma loja de hardware poderia usar para representar uma fatura de um item vendido. Uma Invoice deve incluir quatro variáveis de instância: número da peça (String), descrição da peça (String), quantidade comprada (int) e preço por item (double). A classe deve ter um construtor que inicialize as quatro variáveis, e métodos set e get para cada uma. Além disso, forneça um método chamado getInvoiceAmount que calcula o valor total da fatura (multiplica a quantidade pelo preço por item), retornando o valor como double. Se a quantidade não for positiva, ela deve ser definida como 0. Se o preço por item não for positivo, deve ser definido como 0.0. Escreva um aplicativo de teste chamado InvoiceTest.
+
+#### 3.13 (Classe Employee): Crie uma classe chamada Employee que inclua três variáveis de instância: um primeiro nome (String), um sobrenome (String) e um salário mensal (double). Forneça um construtor que inicialize as três variáveis, e métodos set e get para cada variável. Se o salário mensal não for positivo, não defina seu valor. Escreva um aplicativo de teste chamado EmployeeTest que demonstre as capacidades da classe, crie dois objetos Employee, exiba o salário anual de cada um, aplique um aumento de 10% a cada Employee e exiba novamente o salário anual de cada um.
+
+#### 3.14 (Classe Date): Crie uma classe chamada Date que inclua três variáveis de instância: mês (int), dia (int) e ano (int). Forneça um construtor que inicialize as três variáveis (assumindo que os valores fornecidos estão corretos), e métodos set e get para cada variável. Forneça um método displayDate que exiba o mês, dia e ano separados por barras (/). Escreva um aplicativo de teste chamado DateTest.
+
+#### 3.15 (Removendo Código Duplicado no Método main): Modifique a classe AccountTest (Fig. 3.9) para declarar um novo método static chamado displayAccount que recebe um objeto Account como parâmetro e exibe o nome e o saldo desse objeto. Em seguida, substitua as seis instruções duplicadas no método main por chamadas ao método displayAccount, passando account1 ou account2 como argumento.
+
+Fazendo a Diferença (Making a Difference)
+#### 3.16 (Calculadora de Frequência Cardíaca Alvo): Crie uma classe chamada HeartRates com atributos para nome, sobrenome e data de nascimento (mês, dia, ano). Forneça um construtor, métodos set e get para cada atributo. A classe deve incluir métodos para calcular e retornar a idade da pessoa (em anos), a frequência cardíaca máxima (220 menos a idade em anos) e a frequência cardíaca alvo (faixa de 50–85% da frequência cardíaca máxima). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto HeartRates e imprima todas as informações e as taxas cardíacas calculadas.
+• 3.17 (Informatização de Registros de Saúde): Projete uma classe HealthProfile (nome, sobrenome, gênero, data de nascimento: mês, dia, ano, altura: polegadas, peso: libras). A classe deve ter um construtor que receba esses dados, e métodos set e get para cada atributo. A classe também deve incluir métodos que calculem e retornem a idade do usuário, a frequência cardíaca máxima e a frequência cardíaca alvo (veja Ex. 3.16), e o Índice de Massa Corporal (IMC, veja Ex. 2.33). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto HealthProfile e imprima todas as informações e os valores calculados, além de exibir a tabela de valores de IMC do Exercício 2.33.
+Exercício Opcional do Estudo de Caso de GUI e Gráficos
+• 3.1 Modifique o programa de adição da Fig. 2.7 para usar entrada e saída baseadas em diálogo com os métodos da classe JOptionPane. Será necessário converter a String inserida pelo usuário (retornada por showInputDialog) para um int usando o método static parseInt da classe Integer.
