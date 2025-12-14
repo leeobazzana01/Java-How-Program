@@ -77,10 +77,57 @@ O **new é como se fosse a equipe de construção**, ele **vai na memória** em 
 
 ### O que é um método em uma classe e como ele representa um comportamento de um objeto?
 
+O método é uma **bloco de código que corresponde a um comportamento/tarefa** que poderá ser **executada pelos objetos instanciados na classe**.
 
+O método irá ter **um header**, o **tipo de retorno**, e os **parâmetros**.
+
+Exemplo:
+
+```java
+
+public class Carro{
+    //atributos
+
+    //método construtor
+
+    //exemplo de método
+    public static String partida(boolean ligado){
+        String msg_ligado = "O veículo já está ligado!"
+        String msg_desligado = "Partida Iniciada...\nVeículo Ligado!"
+        
+
+        if (ligado == true){
+                return msg_ligado;
+        }
+
+        else{
+            this.ligado = true;
+            return msg_desligado;
+
+        }
+    }
+}
+```
+
+No exemplo acima, nós temos o método **partida**, declarado por:
+```java
+public static String partida(boolean ligado)
+```
+É um **método público**, **estático**, que **retorna uma String** e tem o nome **partida**. Além disso, ele **recebe o parâmetro booleano ligado**.
 
 ### Como se chama (invoca) um método em um objeto e quais são as diferenças entre chamar métodos de instância e métodos estáticos?
 
+Para **invocar um método**, iremos fazer da seguinte forma; **após criar um objeto**, o **método fará parte do objeto instanciado**, e para chamar podemos fazer da seguinte forma (usando o exemplo do carro criado acima):
+
+```java
+public static void main(String[] args){
+
+    Carro chevete = new Carro("chevette", "Chevrolet", 1997, false);
+
+    chevette.partida(ligado);
+}
+```
+Para **chamar um método**, iremos usar a sintaxe **nome_objeto.método(argumento);**
 
 ## Atributos e Variáveis de Instância 
 
@@ -423,6 +470,8 @@ Como converter a entrada de texto obtida via showInputDialog (ou Scanner.nextLin
 
 Fazendo a Diferença (Making a Difference)
 #### 3.16 (Calculadora de Frequência Cardíaca Alvo): Crie uma classe chamada HeartRates com atributos para nome, sobrenome e data de nascimento (mês, dia, ano). Forneça um construtor, métodos set e get para cada atributo. A classe deve incluir métodos para calcular e retornar a idade da pessoa (em anos), a frequência cardíaca máxima (220 menos a idade em anos) e a frequência cardíaca alvo (faixa de 50–85% da frequência cardíaca máxima). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto HeartRates e imprima todas as informações e as taxas cardíacas calculadas.
-• 3.17 (Informatização de Registros de Saúde): Projete uma classe HealthProfile (nome, sobrenome, gênero, data de nascimento: mês, dia, ano, altura: polegadas, peso: libras). A classe deve ter um construtor que receba esses dados, e métodos set e get para cada atributo. A classe também deve incluir métodos que calculem e retornem a idade do usuário, a frequência cardíaca máxima e a frequência cardíaca alvo (veja Ex. 3.16), e o Índice de Massa Corporal (IMC, veja Ex. 2.33). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto HealthProfile e imprima todas as informações e os valores calculados, além de exibir a tabela de valores de IMC do Exercício 2.33.
+
+#### 3.17 (Informatização de Registros de Saúde): Projete uma classe HealthProfile (nome, sobrenome, gênero, data de nascimento: mês, dia, ano, altura: polegadas, peso: libras). A classe deve ter um construtor que receba esses dados, e métodos set e get para cada atributo. A classe também deve incluir métodos que calculem e retornem a idade do usuário, a frequência cardíaca máxima e a frequência cardíaca alvo (veja Ex. 3.16), e o Índice de Massa Corporal (IMC, veja Ex. 2.33). Escreva um aplicativo Java que solicite as informações da pessoa, instancie um objeto HealthProfile e imprima todas as informações e os valores calculados, além de exibir a tabela de valores de IMC do Exercício 2.33.
+
 Exercício Opcional do Estudo de Caso de GUI e Gráficos
-• 3.1 Modifique o programa de adição da Fig. 2.7 para usar entrada e saída baseadas em diálogo com os métodos da classe JOptionPane. Será necessário converter a String inserida pelo usuário (retornada por showInputDialog) para um int usando o método static parseInt da classe Integer.
+#### 3.1 Modifique o programa de adição da Fig. 2.7 para usar entrada e saída baseadas em diálogo com os métodos da classe JOptionPane. Será necessário converter a String inserida pelo usuário (retornada por showInputDialog) para um int usando o método static parseInt da classe Integer.
