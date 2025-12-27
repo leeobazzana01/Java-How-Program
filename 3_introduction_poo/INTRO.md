@@ -206,13 +206,26 @@ O **processo de criação de um novo objeto** é realizado por uma expressão de
 
 **new**
 
-
 ### Como funciona a expressão de instanciação usando a palavra-chave new e o que acontece internamente quando um objeto é instanciado?
 
+Usando o exemplo da classe **carro** acima, temos o seguinte funcionamento: 
+
+```java
+Carro palio = new Carro("Unno", 32.000,00f, 2009);
+```
+Ordem: **Classe nome_objeto = new Classe(arumentos);**
+
+Na prática, funciona da seguinte forma: o compilador usa a **classe**  como **parâmetro**, temos o **nome do objeto que irá atuar como uma lable**, e então o **método new reserva uma região de memória para aquele objeto**.
 
 
 ### Quais são os componentes obrigatórios de uma expressão de criação de instância (por exemplo, nome da classe e argumentos do construtor)?
 
+Os **componentes obrigatórios**:
+
+1. Classe
+2. Nome do objeto
+3. O método new
+4. Argumentos (se houver parâmetros na classe)
 
 ## Encapsulamento e Ocultação de Dados
 
@@ -221,8 +234,21 @@ Declarar **variáveis de instância com o modificador de acesso private** é con
 
 ### O que significa encapsulamento em orientação a objetos e como o modificador private implementa a ocultação de dados?
 
+O **encapsulamento** é um princípio que **explora a ocultação**. Para isso, podemos **ocultar os atributos estratégicamente**, ou também **ocultar classes quando necessário**. 
+
+Exemplo:
+
+```java
+public class ContaBancaria{
+    private String cpf;
+    private String nome_completo;
+    private float saldo;
+}
+```
 
 ### Quais são as vantagens de esconder dados dentro de um objeto e permitir acesso apenas por meio de métodos da própria classe?
+
+Os **dados são ocultados propositalmente**, como no caso acima. Isso será feito quando o objetivo for **omitir dados e impedir que o cliente da classe tenha acesso**. É comum, nesses casos, permitir o **acesso apénas por meio de getters e setters**.
 
 
 ## Métodos set e get
@@ -232,8 +258,40 @@ Declarar **variáveis de instância com o modificador de acesso private** é con
 
 ### O que são métodos set e get, qual é a sua assinatura típica e quando devemos fornecê-los para variáveis privadas?
 
+Os **métodos get**(do verbo obter, conseguir) são aqueles que **retornam ao usuário os valores de algum atributo**. Para isso, **não precisamos passar nenhum parâmetro**, e apenas o **tipo do retorno deve seguir o padrão de tipo do valor retornado**.
+
+Os métodos **setter**, do inglês setar (configurar) são os **responsáveis por atribuírem valores aos atributos da classe**. Para isso, eles **terão o tipo void**, pois não retornam nada, e **irão receber o parâmetro** que será a variável que será setada.
+
+Exemplo prático: uso da classe **ContaBancaria**:
+
+```java
+public class ContaBancaria{
+    private String nome_completo;
+    private String cpf;
+    private float saldo;
+
+    //construtor
+    .
+    .
+    .
+
+    //getters
+    public String getNomeCompleto(){
+        return nome_completo;
+    }
+    // setters
+    public void setNomeCompleto(String nome_completo){
+        this.nome_completo = nome_completo;
+    }
+
+}
+```
 
 ### Quais são implicações de projeto (por exemplo, validação ou imutabilidade) ao implementar set e get numa classe?
+
+Em relação às **implicações de projeto**, precisamos priorizar o **princípio do encapsulamento** e também levar em conta que **os métodos setters irão conter as regras de negócio**. Portanto, é fundamental considerar as restrições.
+
+O **método setter** irá conter as **regras de negócio**, na maioria das vezes. Por esse motivo, é fundamental que: saibamos avaliar as **restrições adequadas** aos métodos, x 
 
 
 ## Variáveis e Tipos de Dados
@@ -242,15 +300,13 @@ Declarar **variáveis de instância com o modificador de acesso private** é con
 
 **Tipos Primitivos:** Incluem **boolean, byte, char, short, int, long, float e double**. Variáveis de tipos primitivos podem **armazenar exatamente um valor** de seu tipo declarado por vez.
 
+**Tipos de Referência**: São todos os tipos **não primitivos**, incluindo **classes (como String e Scanner)**. Variáveis de **tipo de referência (chamadas referências) armazenam os endereços de objetos na memória** do computador e são necessárias para chamar os métodos de um objeto.
+
 
 ### Quais são os tipos primitivos em Java e que faixa ou natureza de valores cada um representa (por exemplo, int vs long, char vs boolean)?
 
 
 ### Como o armazenamento e a atribuição funcionam para variáveis de tipos primitivos?
-
-
-**Tipos de Referência**: São todos os tipos **não primitivos**, incluindo **classes (como String e Scanner)**. Variáveis de **tipo de referência (chamadas referências) armazenam os endereços de objetos na memória** do computador e são necessárias para chamar os métodos de um objeto.
-
 
 ### O que é um tipo de referência em Java e em que sentido uma variável de referência armazena um endereço ao invés do próprio objeto?
 
@@ -314,53 +370,54 @@ Indica que o **método executará uma tarefa**, mas **não retornará nenhuma in
 O **número e os tipos dos argumentos** devem ser **consistentes** com o **número e os tipos dos parâmetros**.
 
 
-Qual é a diferença conceitual entre parâmetros e argumentos e como a correspondência entre número/tipo é verificada pelo compilador?
+### Qual é a diferença conceitual entre parâmetros e argumentos e como a correspondência entre número/tipo é verificada pelo compilador?
 
 
-O que acontece quando se passa tipos incompatíveis como argumentos ou quando se tenta passar menos/más argumentos do que o método declara?
+### O que acontece quando se passa tipos incompatíveis como argumentos ou quando se tenta passar menos/más argumentos do que o método declara?
 
 
-Variáveis Locais: São variáveis declaradas no corpo de um método e só podem ser usadas dentro desse método.
+### Variáveis Locais: São variáveis declaradas no corpo de um método e só podem ser usadas dentro desse método.
 
 
-Quais são as regras de escopo e tempo de vida de variáveis locais dentro de um método?
+### Quais são as regras de escopo e tempo de vida de variáveis locais dentro de um método?
 
 
-Por que é recomendável limitar a vida útil de variáveis locais e evitar "poluição" do escopo?
+### que é recomendável limitar a vida útil de variáveis locais e evitar "poluição" do escopo?
 
 
-this Keyword: Usado para se referir explicitamente a uma variável de instância que está sendo sombreada (shadowed) por uma variável local ou parâmetro com o mesmo nome dentro do método.
+#### this Keyword: Usado para se referir explicitamente a uma variável de instância que está sendo sombreada (shadowed) por uma variável local ou parâmetro com o mesmo nome dentro do método.
 
 
-Em que situações devemos usar a palavra-chave this e como ela resolve ambiguidade entre variáveis de instância e parâmetros locais?
+### Em que situações devemos usar a palavra-chave this e como ela resolve ambiguidade entre variáveis de instância e parâmetros locais?
 
 
-Além de referir-se a variáveis de instância, que outras utilizações comuns this possui (por exemplo, chamar outro construtor)?
+### Além de referir-se a variáveis de instância, que outras utilizações comuns this possui (por exemplo, chamar outro construtor)?
 
 
-Métodos Estáticos (static): Um método especial (como main ou showMessageDialog do JOptionPane) que pode ser chamado sem primeiro criar um objeto da classe na qual o método foi declarado.
+#### Métodos Estáticos (static): Um método especial (como main ou showMessageDialog do JOptionPane) que pode ser chamado sem primeiro criar um objeto da classe na qual o método foi declarado.
 
 
-O que caracteriza um método static e quais limitações ele tem em relação ao acesso a variáveis de instância?
+### O que caracteriza um método static e quais limitações ele tem em relação ao acesso a variáveis de instância?
 
 
-Quando é apropriado declarar um método como static (por exemplo, main) e quais são os trade-offs de design?
+### Quando é apropriado declarar um método como static (por exemplo, main) e quais são os trade-offs de design?
 
 
-Redução de Código Duplicado: A prática de substituir código repetido por chamadas a um método que contém uma única cópia desse código, visando reduzir o tamanho do programa e melhorar a manutenção.
+### Redução de Código Duplicado: A prática de substituir código repetido por chamadas a um método que contém uma única cópia desse código, visando reduzir o tamanho do programa e melhorar a manutenção.
 
 
-Quais práticas e técnicas podemos usar para reduzir código duplicado e quais são os benefícios em termos de manutenção e legibilidade?
+### Quais práticas e técnicas podemos usar para reduzir código duplicado e quais são os benefícios em termos de manutenção e legibilidade?
 
 
-Quando a extração de um método para eliminar duplicação pode introduzir complexidade indesejada (por exemplo, parâmetros excessivos) e como balancear isso?
+### Quando a extração de um método para eliminar duplicação pode introduzir complexidade indesejada (por exemplo, parâmetros excessivos) e como balancear isso?
 
 
-Construtores
-Construtores: Cada classe pode opcionalmente fornecer um construtor com parâmetros para inicializar um objeto quando ele é criado. Um construtor deve ter o mesmo nome da classe e não pode especificar um tipo de retorno (nem mesmo void).
+## Construtores
+
+### Construtores: Cada classe pode opcionalmente fornecer um construtor com parâmetros para inicializar um objeto quando ele é criado. Um construtor deve ter o mesmo nome da classe e não pode especificar um tipo de retorno (nem mesmo void).
 
 
-O que é um construtor em Java, como se declara e qual é a diferença entre um construtor e um método comum?
+### O que é um construtor em Java, como se declara e qual é a diferença entre um construtor e um método comum?
 
 
 Como passar parâmetros para um construtor e qual é a relação entre os parâmetros do construtor e a inicialização das variáveis de instância?
